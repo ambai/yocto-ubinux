@@ -1,4 +1,4 @@
-# ubinux-2021.01 Release Notes
+# ubinux-2021.02 Release Notes
 
 FUJITSU COMPUTER TECHNOLOGIES LIMITED
 Solution Development Dept. Software Div.
@@ -6,7 +6,7 @@ Solution Development Dept. Software Div.
 ## 1. Basic Information
 ### 1.1 Version Information
 - Yocto: 3.2
-- Kernel: 5.4.84
+- Kernel: 5.4.91
 - Kernel for Layerscape: 5.4.47
 - Toolchain
   - GCC: 10.2.0
@@ -28,7 +28,7 @@ Solution Development Dept. Software Div.
 
 ## 2. Features
 ### 2.1 Security Fixes
-Following security issues have been fixed from ubinux-2020.11.
+Following security issues have been fixed from ubinux-2021.01.
 
 cups:
 - CVE-2012-6094
@@ -121,7 +121,7 @@ ubinux-kernel-lsdk:
 
 ## 3. Installation guide
 ### 3.1 Install Toolchain
-Run as root privilege the Toolchain installer at arbitrary directory, and Toolchain will be installed into /opt/ubinux/2021.01 directory.
+Run as root privilege the Toolchain installer at arbitrary directory, and Toolchain will be installed into /opt/ubinux/2021.02 directory.
 
 
 [TYPE1] in the description, please read as shown below.
@@ -133,7 +133,7 @@ Run as root privilege the Toolchain installer at arbitrary directory, and Toolch
 |Armv8 (32bit EL, 64bit EL) and Arm7|aarch64-ubinux-armv8|
 
 
-`$ sudo sh ubinux-glibc-x86_64-meta-toolchain-[TYPE1]-toolchain-2021.01.sh`
+`$ sudo sh ubinux-glibc-x86_64-meta-toolchain-[TYPE1]-toolchain-2021.02.sh`
 
 
 ### 3.2 Set up Environment Variables
@@ -150,7 +150,7 @@ Run the following commands.
 |Armv8 (32bit EL) and Arm7|armv7ahf-neon-ubinuxmllib32-linux-gnueabi|
 
 
-`$ . /opt/ubinux/2021.01/environment-setup-[TYPE2]`
+`$ . /opt/ubinux/2021.02/environment-setup-[TYPE2]`
 
 ### 3.3 Create rootfs from Userland Packages
 To create rootfs, see Section 3.1.2 and 3.1.3 of the dnf-plugin-tui documentation.
@@ -205,16 +205,14 @@ cairo:
 
 coreutils:
 - CVE-2009-4135
+- CVE-2014-9471
 - CVE-2015-4041
 - CVE-2015-4042
+- CVE-2016-2781
 - CVE-2017-18018
 
 cpio:
 - CVE-2019-14866
-
-curl:
-- CVE-2020-8285
-- CVE-2020-8286
 
 db:
 - CVE-2016-0682
@@ -231,13 +229,15 @@ dovecot:
 - CVE-2020-12100
 - CVE-2020-12673
 - CVE-2020-12674
+- CVE-2020-24386
+- CVE-2020-25275
 
-f2fs-tools:
-- CVE-2020-6104
-- CVE-2020-6105
-- CVE-2020-6106
-- CVE-2020-6107
-- CVE-2020-6108
+ecryptfs-utils:
+- CVE-2016-1572
+
+ffmpeg:
+- CVE-2020-35964
+- CVE-2020-35965
 
 flex:
 - CVE-2019-6293
@@ -255,7 +255,6 @@ glibc:
 - CVE-2019-1010024
 - CVE-2019-1010025
 - CVE-2020-1752
-- CVE-2020-29562
 
 groff:
 - CVE-2000-0803
@@ -278,9 +277,6 @@ libcroco:
 libesmtp:
 - CVE-2019-19977
 
-librsvg:
-- CVE-2019-20446
-
 libuser:
 - CVE-2012-5644
 
@@ -291,52 +287,38 @@ libvirt:
 - CVE-2018-5748
 - CVE-2020-25637
 
+libxcrypt:
+- CVE-2008-3188
+
 lua:
 - CVE-2019-6706
-- CVE-2020-15889
 - CVE-2020-24342
 
-mcpp:
-- CVE-2019-14274
+mariadb:
+- CVE-2020-28912
 
 ntp:
 - CVE-2019-11331
 
-openjpeg:
-- CVE-2019-12973
-
-openssl:
-- CVE-2020-1971
-
-patch:
-- CVE-2019-20633
-
 php:
-- CVE-2020-7069
-- CVE-2020-7070
+- CVE-2007-2728
 
 pixman:
 - CVE-2013-0800
 
-postgresql:
-- CVE-2020-25694
-- CVE-2020-25695
-- CVE-2020-25696
+polkit:
+- CVE-2016-2568
+
+poppler:
+- CVE-2020-35702
 
 procmail:
+- CVE-1999-0475
 - CVE-2014-3618
 - CVE-2017-16844
 
-pulseaudio:
-- CVE-2020-15710
-
 qemu:
 - CVE-2018-18438
-- CVE-2020-15863
-- CVE-2020-25723
-- CVE-2020-25742
-- CVE-2020-25743
-- CVE-2020-27821
 
 qtbase:
 - CVE-2020-17507
@@ -383,11 +365,12 @@ quagga:
 samba:
 - CVE-2018-1050
 - CVE-2018-1057
-- CVE-2020-14318
-- CVE-2020-14383
 
 shadow:
 - CVE-2013-4235
+
+strace:
+- CVE-2000-0006
 
 tcpdump:
 - CVE-2020-8037
@@ -402,76 +385,30 @@ trousers:
 - CVE-2020-24332
 
 ubinux-kernel:
+- CVE-1999-0524
+- CVE-1999-0656
+- CVE-2007-4998
+- CVE-2008-4609
+- CVE-2010-4563
+- CVE-2011-0640
 - CVE-2017-1000377
-- CVE-2019-3016
 - CVE-2019-14899
-- CVE-2019-20794
-- CVE-2020-11725
-- CVE-2020-12656
-- CVE-2020-12888
-- CVE-2020-14351
-- CVE-2020-25211
-- CVE-2020-25284
-- CVE-2020-26541
-- CVE-2020-27152
-- CVE-2020-27194
-- CVE-2020-27673
-- CVE-2020-27675
-- CVE-2020-28941
-- CVE-2020-29372
-- CVE-2020-29660
+- CVE-2019-3016
 
 ubinux-kernel-lsdk:
+- CVE-1999-0524
+- CVE-1999-0656
+- CVE-2007-4998
+- CVE-2008-4609
+- CVE-2010-4563
+- CVE-2011-0640
 - CVE-2017-1000377
-- CVE-2019-3016
 - CVE-2019-14899
-- CVE-2019-20794
-- CVE-2019-20810
-- CVE-2020-10781
-- CVE-2020-11725
-- CVE-2020-12655
-- CVE-2020-12656
-- CVE-2020-12771
-- CVE-2020-12888
-- CVE-2020-14314
-- CVE-2020-14331
-- CVE-2020-14351
-- CVE-2020-14356
-- CVE-2020-14385
-- CVE-2020-14386
-- CVE-2020-14390
-- CVE-2020-14416
-- CVE-2020-15393
-- CVE-2020-15436
-- CVE-2020-15437
-- CVE-2020-15780
-- CVE-2020-16166
-- CVE-2020-24394
-- CVE-2020-25211
-- CVE-2020-25212
-- CVE-2020-25284
-- CVE-2020-25285
-- CVE-2020-25641
-- CVE-2020-25643
-- CVE-2020-25645
-- CVE-2020-25656
-- CVE-2020-25704
-- CVE-2020-25705
-- CVE-2020-26088
-- CVE-2020-26541
-- CVE-2020-27152
-- CVE-2020-27194
-- CVE-2020-27673
-- CVE-2020-27675
-- CVE-2020-28915
-- CVE-2020-28941
-- CVE-2020-28974
-- CVE-2020-29368
-- CVE-2020-29369
-- CVE-2020-29371
-- CVE-2020-29372
-- CVE-2020-29660
-- CVE-2020-29661
+- CVE-2019-3016
+- CVE-2020-36158
+
+uw-imap:
+- CVE-2005-0198
 
 wireshark:
 - CVE-2020-26418
@@ -480,15 +417,11 @@ wireshark:
 - CVE-2020-26575
 - CVE-2020-28030
 
-xrdp:
-- CVE-2020-4044
-
-zabbix:
-- CVE-2020-15803
+xterm:
+- CVE-1999-0965
 
 zip:
 - CVE-2018-13410
-
 
 ## 7. Contact us
 If you find an issue in ubinux, you should report it in the issue tracker on GitHub.
